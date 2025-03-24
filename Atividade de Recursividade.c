@@ -1,37 +1,49 @@
 // 1) Fatorial
 
+// #include <stdio.h>
+
+// int fatorial (int n) {
+
+//     if (n <= 0) {
+
+//         return 1;
+//     }
+
+//     else {
+
+//         return n * fatorial (n - 1);
+//     }
+
+// }
+// int main () {
+
+//     int n = 5;
+    
+//     printf ("Fatorial de %d: %d\n", n, fatorial (n));
+    
+// }
+
+// 2) Soma de Números Naturais
+
 #include <stdio.h>
 
-int fatorial (int n) {
+int soma (int n) {
 
-    if (n == 0) {
+    if (n <= 0) {
 
-        return 1;
-    }
-
-    else if (n < 0) {
-
-        return -1;
+        return 0;
     }
 
     else {
 
-        return n * fatorial (n - 1);
+        return n + soma (n - 1);
     }
-
 }
+
 int main () {
 
-    int n = -5;
+    int n = 7;
 
-    if (fatorial (n) == -1) {
+    printf ("Soma dos primeiros %d numeros: %d\n", n, soma (n));
 
-        printf ("Nao existe fatorial de um numero negativo!");
-
-    }
-
-    else {
-
-        printf ("Fatorial de %d: %d\n", n, fatorial (n));
-    }
 }

@@ -50,33 +50,65 @@
 
 // 3) Sequência de Fibonacci
 
+// #include <stdio.h>
+
+// int a = 0;
+// int b = 1;
+
+// int fibonacci (int n) {
+
+//     if (n == 0) {
+
+//         return 0;
+//     }
+
+//     else if (n == 1) {
+
+//         return 1;
+//     }
+
+//     else {
+
+//         return fibonacci (n - 1) + fibonacci (n - 2);
+//     }
+
+// }
+
+// int main () {
+
+//     int n = 25;
+        
+//     printf ("Enesimo termo da sequencia de Fibonacci: %d", fibonacci (n));
+// }
+
+// 4) Potência
+
 #include <stdio.h>
 
-int a = 0;
-int b = 1;
-
-int fibonacci (int n) {
+int potencia (int x, int n) {
 
     if (n == 0) {
-
-        return 0;
-    }
-
-    else if (n == 1) {
 
         return 1;
     }
 
-    else {
+    int temp = potencia (x, n / 2);
 
-        return fibonacci (n - 1) + fibonacci (n - 2);
+    if (n % 2 == 0) {
+
+        return temp * temp;
     }
 
+    else {
+
+        return temp * temp * x;
+    }
 }
 
 int main () {
 
-    int n = 25;
-        
-    printf ("Enesimo termo da sequencia de Fibonacci: %d", fibonacci (n));
+    int x = 2;
+    int n = 4;
+
+    printf ("%d elevado a %d potencia: %d", x, n, potencia (x, n));
 }

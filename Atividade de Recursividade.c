@@ -115,28 +115,54 @@
 
 // 5) Contagem Regressiva
 
-#include <stdio.h> 
+// #include <stdio.h> 
 
-int contagem (int n) {
+// int contagem (int n) {
 
-    if (n < 0) {
+//     if (n < 0) {
 
-        return 0;
+//         return 0;
+//     }
+
+//     else {
+
+//         printf ("%d\n", n);
+//         return contagem (n - 1);
+//     }
+// }
+
+
+// int main () {
+
+//     int n = 10;
+
+//     contagem(n);
+
+//     printf ("Lancar!!!");
+// }
+
+// 6) Soma de Dígitos
+
+#include <stdio.h>
+
+int soma = 0;
+
+int somaDigitos (int n, int soma) {
+
+    if (n <= 0) {
+
+        return soma;
     }
 
     else {
 
-        printf ("%d\n", n);
-        return contagem (n - 1);
+        return soma + somaDigitos (n / 10, n % 10);
     }
 }
 
-
 int main () {
 
-    int n = 10;
+    int n = 9876;
 
-    contagem(n);
-
-    printf ("Lancar!!!");
+    printf ("Soma dos termos: %d\n", somaDigitos (n, 0));
 }

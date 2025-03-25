@@ -83,32 +83,60 @@
 
 // 4) Potência
 
-#include <stdio.h>
+// #include <stdio.h>
 
-int potencia (int x, int n) {
+// int potencia (int x, int n) {
 
-    if (n == 0) {
+//     if (n == 0) {
 
-        return 1;
-    }
+//         return 1;
+//     }
 
-    int temp = potencia (x, n / 2);
+//     int temp = potencia (x, n / 2);
 
-    if (n % 2 == 0) {
+//     if (n % 2 == 0) {
 
-        return temp * temp;
+//         return temp * temp;
+//     }
+
+//     else {
+
+//         return temp * temp * x;
+//     }
+// }
+
+// int main () {
+
+//     int x = 2;
+//     int n = 4;
+
+//     printf ("%d elevado a %d potencia: %d", x, n, potencia (x, n));
+// }
+
+// 5) Contagem Regressiva
+
+#include <stdio.h> 
+
+int contagem (int n) {
+
+    if (n < 0) {
+
+        return 0;
     }
 
     else {
 
-        return temp * temp * x;
+        printf ("%d\n", n);
+        return contagem (n - 1);
     }
 }
 
+
 int main () {
 
-    int x = 2;
-    int n = 4;
+    int n = 10;
 
-    printf ("%d elevado a %d potencia: %d", x, n, potencia (x, n));
+    contagem(n);
+
+    printf ("Lancar!!!");
 }

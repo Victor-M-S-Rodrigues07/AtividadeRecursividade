@@ -242,25 +242,50 @@
 
 // 9) Máximo Divisor Comum
 
+// #include <stdio.h>
+
+// int MDC (int a, int b) {
+
+//     if (b == 0) {
+
+//         return a;
+//     }
+
+//     else {
+
+//         return MDC (b, a % b);
+//     }
+// }
+
+// int main () {
+
+//     int N1 = 48;
+//     int N2 = 18;
+    
+//     printf ("O MDC de %d e %d = %d", N1, N2, MDC(N1, N2));  
+// }
+
+// 10) Multiplicação Recursiva
+
 #include <stdio.h>
 
-int MDC (int a, int b) {
+int multiplicacao (int a, int b) {
 
-    if (b == 0) {
+    if (b <= 0) {
 
-        return a;
+        return 0;
     }
 
     else {
 
-        return MDC (b, a % b);
+        return a + multiplicacao (a, b - 1);
     }
 }
 
 int main () {
 
-    int N1 = 48;
-    int N2 = 18;
-    
-    printf ("O MDC de %d e %d = %d", N1, N2, MDC(N1, N2));  
+    int a = 5;
+    int b = 3;
+
+    printf ("%d x %d = %d\n", a, b, multiplicacao (a, b));
 }

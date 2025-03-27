@@ -169,29 +169,73 @@
 
 // 7) Inversão de String
 
+// #include <stdio.h>
+// #include <string.h>
+
+// void inverterString (char palavra [], int inicial, int final) {
+
+//     if (inicial >= final) {
+
+//         return;
+//     }
+
+//     char temp = palavra [inicial];
+//     palavra [inicial] = palavra [final];
+//     palavra [final] = temp;
+    
+//     inverterString (palavra, inicial + 1, final - 1);
+// }
+
+// int main () {
+
+//     char palavra [] = "Perfume";
+//     int tamanho = strlen (palavra);
+
+//     inverterString (palavra, 0, tamanho - 1);
+
+//     printf ("Palavra invertida: %s", palavra);
+// }
+
+// 8) Verificação de Palíndromo
+
 #include <stdio.h>
 #include <string.h>
 
-void inverterString (char palavra [], int inicial, int final) {
+int verificarPalindromo (char palavra [], int indexA, int indexB) {
 
-    if (inicial >= final) {
+    if (indexA >= indexB) {
 
-        return;
+        return 1;
     }
 
-    char temp = palavra [inicial];
-    palavra [inicial] = palavra [final];
-    palavra [final] = temp;
-    
-    inverterString (palavra, inicial + 1, final - 1);
+    else {
+
+        if (palavra [indexA] != palavra [indexB]) {
+
+            return 0;
+        }
+
+        else {
+
+            return verificarPalindromo (palavra, indexA + 1, indexB - 1);
+        }
+    }
 }
 
 int main () {
 
-    char palavra [] = "Perfume";
+    char palavra [] = "banana";
     int tamanho = strlen (palavra);
 
-    inverterString (palavra, 0, tamanho - 1);
+    int resultado = verificarPalindromo (palavra, 0, tamanho - 1);
 
-    printf ("Palavra invertida: %s", palavra);
+    if (resultado == 1) {
+
+        printf ("A palavra %s e um palindromo!\n", palavra);
+    }
+
+    else {
+
+        printf ("A palavra %s nao e um palindromo!\n", palavra);
+    }
 }

@@ -143,26 +143,55 @@
 
 // 6) Soma de Dígitos
 
+// #include <stdio.h>
+
+// int soma = 0;
+
+// int somaDigitos (int n, int soma) {
+
+//     if (n <= 0) {
+
+//         return soma;
+//     }
+
+//     else {
+
+//         return soma + somaDigitos (n / 10, n % 10);
+//     }
+// }
+
+// int main () {
+
+//     int n = 9876;
+
+//     printf ("Soma dos termos: %d\n", somaDigitos (n, 0));
+// }
+
+// 7) Inversão de String
+
 #include <stdio.h>
+#include <string.h>
 
-int soma = 0;
+void inverterString (char palavra [], int inicial, int final) {
 
-int somaDigitos (int n, int soma) {
+    if (inicial >= final) {
 
-    if (n <= 0) {
-
-        return soma;
+        return;
     }
 
-    else {
-
-        return soma + somaDigitos (n / 10, n % 10);
-    }
+    char temp = palavra [inicial];
+    palavra [inicial] = palavra [final];
+    palavra [final] = temp;
+    
+    inverterString (palavra, inicial + 1, final - 1);
 }
 
 int main () {
 
-    int n = 9876;
+    char palavra [] = "Perfume";
+    int tamanho = strlen (palavra);
 
-    printf ("Soma dos termos: %d\n", somaDigitos (n, 0));
+    inverterString (palavra, 0, tamanho - 1);
+
+    printf ("Palavra invertida: %s", palavra);
 }

@@ -267,25 +267,25 @@
 
 // 10) Multiplicação Recursiva
 
-#include <stdio.h>
+// #include <stdio.h>
 
-int multiplicacao (int a, int b) {
+// int multiplicacao (int a, int b) {
 
-    if (b <= 0) {
+//     if (b <= 0) {
 
-        return 0;
-    }
+//         return 0;
+//     }
 
-    else {
+//     else {
 
-        return a + multiplicacao (a, b - 1);
-    }
-}
+//         return a + multiplicacao (a, b - 1);
+//     }
+// }
 
-int main () {
+// int main () {
 
-    int a = 5;
-    int b = 3;
+//     int a = 5;
+//     int b = 3;
 
-    printf ("%d x %d = %d\n", a, b, multiplicacao (a, b));
-}
+//     printf ("%d x %d = %d\n", a, b, multiplicacao (a, b));
+// }

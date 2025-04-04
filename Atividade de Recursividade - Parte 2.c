@@ -216,25 +216,68 @@
 
 // 16) Impressão de Números Ímpares
 
+// #include <stdio.h>
+
+// void imprimirImpares (int N, int contador) {
+
+//     if (contador > N) {
+
+//         return;
+//     }
+
+//     else {
+
+//         printf ("%d\n", contador);
+//         return imprimirImpares (N, contador + 2);
+//     }
+// }
+
+// int main () {
+
+//     int N = 17;
+
+//     imprimirImpares (N, 1);
+// }
+
+// 17) Busca em Array
+
 #include <stdio.h>
 
-void imprimirImpares (int N, int contador) {
+int verificarArray (int N, int array[], int indice, int tamanho) {
 
-    if (contador > N) {
+    if (indice > tamanho) {
 
-        return;
+        return 0;
     }
 
     else {
 
-        printf ("%d\n", contador);
-        return imprimirImpares (N, contador + 2);
+        if (array[indice] == N) {
+
+            return 1;
+        }
+
+        else {
+
+            return verificarArray (N, array, indice + 1, tamanho);
+        }
     }
 }
 
 int main () {
 
-    int N = 17;
+    int N = 10;
+    int array[] = {5, 8, 12, 3, 7, 1, 9, 0, 4, 6};
+    size_t tamanho = sizeof (array) / sizeof (array[0]);  
+    int resultado = verificarArray (N, array, 0, tamanho);
 
-    imprimirImpares (N, 1);
+    if (resultado == 0) {
+
+        printf ("O numero %d nao foi encontrado na array", N);
+    }
+
+    else {
+
+        printf ("O numero %d foi encontrado na array!", N);
+    }
 }

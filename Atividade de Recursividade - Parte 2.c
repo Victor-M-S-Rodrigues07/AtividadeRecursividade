@@ -63,55 +63,120 @@
 
 // 13) Verificação de Número Primo
 
+// #include <stdio.h>
+
+// int verificarPrimo (int N, int divisor) {
+
+//     if (N <= 1) {
+
+//         return 0;
+//     }
+
+//     else if (N == 2) {
+
+//         return 1;
+//     }
+
+//     else {
+
+//         if (N % divisor == 0) {
+
+//             return 0;
+//         }
+
+//         else {
+
+//             if (divisor * divisor > N) {
+
+//                 return 1;
+//             }
+
+//             else {
+
+//                 return verificarPrimo (N, divisor + 1);
+//             }
+//         }
+//     }
+// }
+
+// int main () {
+
+//     int N = 64;
+
+//     int resultado = verificarPrimo (N, 2);
+
+//     if (resultado == 0) {
+
+//         printf ("O numero nao e primo");
+//     }
+
+//     else {
+
+//         printf ("O numero e primo!");
+//     }
+// }
+
+// 14) Conversão de Decimal para Binário
+
 #include <stdio.h>
+#include <string.h>
 
-int verificarPrimo (int N, int divisor) {
+void conversorBinario (int N, int indice, char binario[]) {
 
-    if (N <= 1) {
+    if (N == 0) {
 
-        return 0;
+        binario[indice] = '0';
+        binario[indice + 1] = '\0';
+        return;
     }
+    
+    else if (N == 1) {
 
-    else if (N == 2) {
-
-        return 1;
+        binario[indice] = '1';
+        binario[indice + 1] = '\0';
+        return;
     }
 
     else {
 
-        if (N % divisor == 0) {
+        if (N % 2 == 0) {
 
-            return 0;
+            binario[indice] = '0';
+
+            return conversorBinario (N / 2, indice + 1, binario);
         }
 
         else {
 
-            if (divisor * divisor > N) {
-
-                return 1;
-            }
-
-            else {
-
-                return verificarPrimo (N, divisor + 1);
-            }
+            binario[indice] = '1';
+            return conversorBinario (N / 2, indice + 1, binario);
         }
     }
 }
 
+void inverterString (char palavra [], int inicial, int final) {
+
+    if (inicial >= final) {
+        return;
+    }
+    
+    char temp = palavra [inicial];
+    palavra [inicial] = palavra [final];
+    palavra [final] = temp;
+    
+    inverterString (palavra, inicial + 1, final - 1);
+}
+
 int main () {
 
-    int N = 64;
+    int N = 14;
+    char binario[100];
+    
+    conversorBinario (N, 0, binario);
 
-    int resultado = verificarPrimo (N, 2);
+    int tamanho = strlen (binario) - 1;
 
-    if (resultado == 0) {
+    inverterString (binario, 0, tamanho);
 
-        printf ("O numero nao e primo");
-    }
-
-    else {
-
-        printf ("O numero e primo!");
-    }
+    printf ("O numero %d na representacao binaria: %s", N, binario);
 }

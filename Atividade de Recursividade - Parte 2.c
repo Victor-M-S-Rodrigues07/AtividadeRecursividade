@@ -286,24 +286,53 @@
 
 //OBS: Não pode usar "strlen"
 
+// #include <stdio.h>
+
+// int comprimentoString (char palavra[], int indice, int contador) {
+
+//     if (palavra[indice] == '\0') {
+
+//         return contador;
+//     }
+
+//     else {
+
+//         return comprimentoString (palavra, indice + 1, contador + 1);
+//     }
+// }
+
+// int main () {
+
+//     char palavra[] = "Maca";
+
+//     printf ("A palavra %s tem %d letras.", palavra, comprimentoString (palavra, 0, 0));
+// }
+
+// 19) Torre de Hanói
+
 #include <stdio.h>
 
-int comprimentoString (char palavra[], int indice, int contador) {
-
-    if (palavra[indice] == '\0') {
-
-        return contador;
+void torreHanoi (int n, char origem, char auxiliar, char destino) {
+    
+    if (n == 1) {
+        
+        printf("Mover disco 1 de %c para %c\n", origem, destino);
+            
+        return;
     }
 
-    else {
+    torreHanoi(n - 1, origem, destino, auxiliar);
 
-        return comprimentoString (palavra, indice + 1, contador + 1);
-    }
+    printf("Mover disco %d de %c para %c\n", n, origem, destino);
+
+    torreHanoi(n - 1, auxiliar, origem, destino);
 }
 
-int main () {
+int main() {
 
-    char palavra[] = "Maca";
+    int n = 3;
 
-    printf ("A palavra %s tem %d letras.", palavra, comprimentoString (palavra, 0, 0));
+    torreHanoi(n, 'A', 'B', 'C');
+
+    return 0;
 }
